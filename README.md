@@ -22,6 +22,12 @@
 | `memory/` | Дневники работы по дням (`YYYY-MM-DD.md`). Агент ведёт сам. |
 | `knowledge/` | Справочники и инструкции (брендбук, чек-листы, гайды). Вы кладёте сюда вручную или просите Агента собрать. |
 
+**Telegram-бот (опционально)**
+
+| Папка | Что внутри |
+|---|---|
+| `bot/` | Telegram-бот на Grammy + Claude Code CLI. Позволяет общаться с Агентом через Telegram 24/7. |
+
 ---
 
 ## Урок 4. Установка архитектуры (локально)
@@ -51,7 +57,7 @@ Claude сам:
 - IP-адрес и root-пароль (получили при регистрации)
 - VS Code с Claude Code на вашем компьютере
 
-### Скопируйте этот промпт в Claude Code
+### Вариант А: Только файлы (без Telegram-бота)
 
 Откройте Claude Code в VS Code **в папке вашего Агента** (там где лежат SOUL.md, MEMORY.md и т.д.) и вставьте этот текст, заменив IP и пароль на свои:
 
@@ -61,17 +67,33 @@ IP: 123.45.67.89
 Пароль: ваш_пароль
 ```
 
+### Вариант Б: Полная установка с Telegram-ботом
+
+Если хотите сразу запустить Telegram-бота на сервере:
+
+```
+Скачай инструкцию https://raw.githubusercontent.com/Ntmib/jarvis-architect/main/server/INSTALL-SERVER.md и выполни всё что в ней написано.
+IP: 123.45.67.89
+Пароль: ваш_пароль
+Telegram-бот: 7123456789:AAHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+Anthropic API key: sk-ant-xxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+**Где взять токены:**
+- **Telegram-бот** — создайте через @BotFather в Telegram (команда /newbot)
+- **Anthropic API key** — получите на console.anthropic.com
+
 Замените `123.45.67.89` на IP вашего сервера и `ваш_пароль` на пароль от VPS.
 
 Claude сам:
-1. Скачает инструкцию с GitHub
-2. Подключится к серверу
-3. Установит Node.js, Claude Code CLI
-4. Создаст рабочие папки
-5. Скопирует ваши файлы Агента на сервер
-6. Скажет как настроить VS Code Tunnel
+1. Подключится к серверу
+2. Установит Node.js, Claude Code CLI
+3. Создаст рабочие папки
+4. Скопирует ваши файлы Агента на сервер
+5. Установит и запустит Telegram-бота (если указали токены)
+6. Скажет что делать дальше (настройка VS Code Tunnel)
 
-### После установки: настройте VS Code Tunnel
+### Настройте VS Code Tunnel
 
 Claude даст инструкцию. Если коротко:
 1. Зайдите в панель Beget → ваш VPS → **Консоль**
@@ -112,16 +134,6 @@ IP: 123.45.67.89
 
 ---
 
-## Если предпочитаете команду в терминале
-
-```bash
-npx degit Ntmib/jarvis-architect .
-```
-
-После этого откройте Claude Code — он сам найдёт `INSTALL.md` и продолжит установку.
-
----
-
 ## Структура репозитория
 
 ```
@@ -134,9 +146,13 @@ jarvis-architect/
 ├── setup-server.sh        ← скрипт установки VPS (для VNC-консоли)
 ├── memory/                ← дневники работы по дням
 ├── knowledge/             ← справочники и инструкции
-├── examples/              ← пример заполненного Агента
+├── bot/                   ← Telegram-бот
+│   ├── index.js           ← код бота (Grammy + Claude Code CLI)
+│   ├── package.json       ← зависимости
+│   └── agent-bot.service  ← systemd-сервис
 ├── server/
 │   └── INSTALL-SERVER.md  ← инструкция для Claude: установка на VPS
+├── examples/              ← пример заполненного Агента
 ├── docs/
 │   └── s                  ← копия setup-server.sh для GitHub Pages
 └── .claude/
@@ -146,6 +162,16 @@ jarvis-architect/
         └── server-setup/
             └── SKILL.md    ← скилл установки на VPS
 ```
+
+---
+
+## Если предпочитаете команду в терминале
+
+```bash
+npx degit Ntmib/jarvis-architect .
+```
+
+После этого откройте Claude Code — он сам найдёт `INSTALL.md` и продолжит установку.
 
 ---
 
