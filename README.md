@@ -55,53 +55,25 @@ Claude сам:
 
 Откройте Claude Code в VS Code **в папке вашего Агента** (там где лежат SOUL.md, MEMORY.md и т.д.) и вставьте этот текст, заменив IP и пароль на свои:
 
----
-
 ```
-Ты — установщик. Твоя задача — установить окружение для AI-агента на удалённый сервер и перенести туда мои файлы. Не задавай уточняющих вопросов — просто выполняй по шагам.
-
-МОЙ СЕРВЕР:
+Скачай инструкцию https://raw.githubusercontent.com/Ntmib/jarvis-architect/main/server/INSTALL-SERVER.md и выполни всё что в ней написано.
 IP: 123.45.67.89
-Пароль: mypassword123
-
-ЧТО СДЕЛАТЬ:
-
-Шаг 1. Подключись к серверу.
-Используй expect для ввода пароля:
-expect -c 'spawn ssh -o StrictHostKeyChecking=no root@IP "echo OK"; expect "password:" {send "ПАРОЛЬ\r"}; expect eof'
-Замени IP и ПАРОЛЬ на мои данные выше.
-
-Шаг 2. Установи систему на сервере (каждую команду через ssh):
-- apt-get update -qq && apt-get install -y -qq curl git jq unzip
-- curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs
-- npm install -g @anthropic-ai/claude-code
-- id agent 2>/dev/null || useradd -m -s /bin/bash agent
-- mkdir -p /home/agent/workspace /home/agent/projects
-- chown -R agent:agent /home/agent
-- Сделай Claude Code доступным для пользователя agent (chmod a+rX на путь к бинарнику)
-
-Шаг 3. Скопируй мои файлы на сервер.
-Используй scp с expect для каждого файла. Копируй в /home/agent/workspace/:
-- CLAUDE.md, SOUL.md, MEMORY.md, GOALS.md
-- Папку memory/ (со всем содержимым)
-- Папку knowledge/ (со всем содержимым)
-- Папку .claude/ (со всем содержимым, если есть)
-После копирования: chown -R agent:agent /home/agent/workspace
-
-Шаг 4. Проверь результат.
-Выполни на сервере: node -v && which claude && ls -la /home/agent/workspace/
-Покажи мне вывод.
-
-Шаг 5. Скажи мне что делать дальше для настройки VS Code Tunnel.
-
-Если SSH не подключается (таймаут) — скажи: «SSH заблокирован VPN. Зайдите в панель Beget → VPS → Консоль, введите: wget ntmib.github.io/jarvis-architect/s && bash s — скрипт всё установит. После этого скажите мне, я скопирую файлы.»
+Пароль: ваш_пароль
 ```
 
----
+Замените `123.45.67.89` на IP вашего сервера и `ваш_пароль` на пароль от VPS.
+
+Claude сам:
+1. Скачает инструкцию с GitHub
+2. Подключится к серверу
+3. Установит Node.js, Claude Code CLI
+4. Создаст рабочие папки
+5. Скопирует ваши файлы Агента на сервер
+6. Скажет как настроить VS Code Tunnel
 
 ### После установки: настройте VS Code Tunnel
 
-Claude скажет что делать. Если коротко:
+Claude даст инструкцию. Если коротко:
 1. Зайдите в панель Beget → ваш VPS → **Консоль**
 2. Введите: `code tunnel --accept-server-license-terms`
 3. Откроется ссылка — перейдите по ней и введите код
@@ -130,7 +102,13 @@ wget ntmib.github.io/jarvis-architect/s
 bash s
 ```
 
-Скрипт установит всё автоматически. После этого вернитесь в Claude Code и вставьте промпт, но только шаги 3-5 (копирование файлов).
+Скрипт установит систему. После этого вернитесь в Claude Code и скажите:
+
+```
+Скачай инструкцию https://raw.githubusercontent.com/Ntmib/jarvis-architect/main/server/INSTALL-SERVER.md и выполни шаги 5-8 (копирование файлов и проверка). Система уже установлена через VNC.
+IP: 123.45.67.89
+Пароль: ваш_пароль
+```
 
 ---
 
@@ -141,6 +119,33 @@ npx degit Ntmib/jarvis-architect .
 ```
 
 После этого откройте Claude Code — он сам найдёт `INSTALL.md` и продолжит установку.
+
+---
+
+## Структура репозитория
+
+```
+jarvis-architect/
+├── CLAUDE.md              ← правила работы Агента (с плейсхолдерами)
+├── SOUL.md                ← личность Агента (с плейсхолдерами)
+├── MEMORY.md              ← долгосрочная память (с плейсхолдерами)
+├── GOALS.md               ← цели (с плейсхолдерами)
+├── INSTALL.md             ← wizard для Claude Code (урок 4, удаляется после)
+├── setup-server.sh        ← скрипт установки VPS (для VNC-консоли)
+├── memory/                ← дневники работы по дням
+├── knowledge/             ← справочники и инструкции
+├── examples/              ← пример заполненного Агента
+├── server/
+│   └── INSTALL-SERVER.md  ← инструкция для Claude: установка на VPS
+├── docs/
+│   └── s                  ← копия setup-server.sh для GitHub Pages
+└── .claude/
+    ├── CLAUDE.md           ← проектные инструкции для Claude Code
+    └── skills/
+        ├── README.md       ← гайд по скиллам (урок 5)
+        └── server-setup/
+            └── SKILL.md    ← скилл установки на VPS
+```
 
 ---
 
