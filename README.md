@@ -51,31 +51,64 @@ Claude сам:
 - IP-адрес и root-пароль (получили при регистрации)
 - VS Code с Claude Code на вашем компьютере
 
-### Шаг 1. Скажите Claude Code
+### Скопируйте этот промпт в Claude Code
 
-Откройте Claude Code в VS Code **в папке вашего Агента** (там где лежат SOUL.md, MEMORY.md и т.д.) и скажите:
+Откройте Claude Code в VS Code **в папке вашего Агента** (там где лежат SOUL.md, MEMORY.md и т.д.) и вставьте этот текст, заменив IP и пароль на свои:
 
-> **Установи моего агента на сервер. IP: ВАШ_IP Пароль: ВАШ_ПАРОЛЬ**
+---
 
-Замените `ВАШ_IP` и `ВАШ_ПАРОЛЬ` на данные вашего VPS.
+```
+Ты — установщик. Твоя задача — установить окружение для AI-агента на удалённый сервер и перенести туда мои файлы. Не задавай уточняющих вопросов — просто выполняй по шагам.
 
-Claude сам:
-1. Подключится к серверу
-2. Установит Node.js, Claude Code CLI
-3. Создаст рабочие папки
-4. Скопирует ваши файлы Агента на сервер
-5. Скажет что делать дальше (настройка VS Code Tunnel)
+МОЙ СЕРВЕР:
+IP: 123.45.67.89
+Пароль: mypassword123
 
-### Шаг 2. Настройте VS Code Tunnel
+ЧТО СДЕЛАТЬ:
 
-Claude даст инструкцию. Если коротко:
+Шаг 1. Подключись к серверу.
+Используй expect для ввода пароля:
+expect -c 'spawn ssh -o StrictHostKeyChecking=no root@IP "echo OK"; expect "password:" {send "ПАРОЛЬ\r"}; expect eof'
+Замени IP и ПАРОЛЬ на мои данные выше.
+
+Шаг 2. Установи систему на сервере (каждую команду через ssh):
+- apt-get update -qq && apt-get install -y -qq curl git jq unzip
+- curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs
+- npm install -g @anthropic-ai/claude-code
+- id agent 2>/dev/null || useradd -m -s /bin/bash agent
+- mkdir -p /home/agent/workspace /home/agent/projects
+- chown -R agent:agent /home/agent
+- Сделай Claude Code доступным для пользователя agent (chmod a+rX на путь к бинарнику)
+
+Шаг 3. Скопируй мои файлы на сервер.
+Используй scp с expect для каждого файла. Копируй в /home/agent/workspace/:
+- CLAUDE.md, SOUL.md, MEMORY.md, GOALS.md
+- Папку memory/ (со всем содержимым)
+- Папку knowledge/ (со всем содержимым)
+- Папку .claude/ (со всем содержимым, если есть)
+После копирования: chown -R agent:agent /home/agent/workspace
+
+Шаг 4. Проверь результат.
+Выполни на сервере: node -v && which claude && ls -la /home/agent/workspace/
+Покажи мне вывод.
+
+Шаг 5. Скажи мне что делать дальше для настройки VS Code Tunnel.
+
+Если SSH не подключается (таймаут) — скажи: «SSH заблокирован VPN. Зайдите в панель Beget → VPS → Консоль, введите: wget ntmib.github.io/jarvis-architect/s && bash s — скрипт всё установит. После этого скажите мне, я скопирую файлы.»
+```
+
+---
+
+### После установки: настройте VS Code Tunnel
+
+Claude скажет что делать. Если коротко:
 1. Зайдите в панель Beget → ваш VPS → **Консоль**
 2. Введите: `code tunnel --accept-server-license-terms`
 3. Откроется ссылка — перейдите по ней и введите код
 4. Вернитесь в консоль, нажмите Ctrl+C
 5. Введите: `code tunnel service install --accept-server-license-terms`
 
-### Шаг 3. Подключитесь из VS Code
+### Подключитесь из VS Code
 
 1. Откройте VS Code на компьютере
 2. Слева найдите **Remote Explorer** (иконка монитора)
@@ -97,9 +130,7 @@ wget ntmib.github.io/jarvis-architect/s
 bash s
 ```
 
-Скрипт установит всё автоматически. После этого вернитесь в Claude Code и скажите:
-
-> **Скопируй мои файлы на сервер. IP: ВАШ_IP Пароль: ВАШ_ПАРОЛЬ**
+Скрипт установит всё автоматически. После этого вернитесь в Claude Code и вставьте промпт, но только шаги 3-5 (копирование файлов).
 
 ---
 
