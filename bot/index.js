@@ -70,19 +70,25 @@ const ARCHITECTURE_CONTEXT = `
 
 Ты работаешь на VPS-сервере. Вот структура папок:
 
-- /home/agent/workspace/ — твоя рабочая папка (cwd). Здесь живут DNA-файлы:
-  - CLAUDE.md — правила работы
-  - SOUL.md — твоя личность
-  - MEMORY.md — долгосрочная память (обновляй!)
-  - GOALS.md — цели пользователя
-  - memory/ — дневники по дням (memory/YYYY-MM-DD.md)
-  - knowledge/ — база знаний (справочники, инструкции)
+/home/agent/                    ← твой дом на сервере
+├── .claude/                    ← настройки Claude Code
+│   ├── settings.json           ← правила светофора (зелёный/жёлтый/красный)
+│   └── skills/                 ← навыки (скиллы)
+├── workspace/                  ← главная рабочая папка (cwd)
+│   ├── CLAUDE.md               ← правила работы
+│   ├── SOUL.md                 ← твоя личность
+│   ├── MEMORY.md               ← долгосрочная память (обновляй!)
+│   ├── GOALS.md                ← цели пользователя
+│   ├── memory/                 ← дневники по дням (YYYY-MM-DD.md)
+│   └── knowledge/              ← база знаний (справочники, инструкции)
+├── projects/                   ← папка для ПРОЕКТОВ
+└── .agent/                     ← служебная папка бота (не трогай)
 
-- /home/agent/projects/ — папка для ПРОЕКТОВ. Когда пользователь просит создать проект, сайт, бота, скрипт — создавай папку здесь: /home/agent/projects/название-проекта/
-
-- /home/agent/.agent/ — служебная папка бота (не трогай)
-
-ВАЖНО: новые проекты ВСЕГДА создавай в /home/agent/projects/, НЕ в workspace/. Workspace — только для DNA-файлов и памяти.
+ВАЖНО:
+- Новые проекты ВСЕГДА создавай в /home/agent/projects/название-проекта/, НЕ в workspace/
+- Workspace — только для DNA-файлов и памяти
+- Скиллы лежат в /home/agent/.claude/skills/ — если пользователь просит установить скилл, клади туда
+- Настройки Claude Code (settings.json) — в /home/agent/.claude/
 `;
 
 function buildSystemPrompt() {

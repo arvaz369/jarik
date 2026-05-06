@@ -106,7 +106,7 @@ npm install -g @anthropic-ai/claude-code 2>&1 | tail -5 && which claude
 
 **3.4. Пользователь agent и папки:**
 ```
-id agent 2>/dev/null || useradd -m -s /bin/bash agent && mkdir -p /home/agent/workspace/memory /home/agent/workspace/knowledge /home/agent/projects /home/agent/.agent/bot && chown -R agent:agent /home/agent && echo OK
+id agent 2>/dev/null || useradd -m -s /bin/bash agent && mkdir -p /home/agent/workspace/memory /home/agent/workspace/knowledge /home/agent/projects /home/agent/.agent/bot /home/agent/.claude/skills && chown -R agent:agent /home/agent && echo OK
 ```
 
 **3.5. Права на Claude Code для пользователя agent:**
@@ -150,11 +150,18 @@ expect -c '
 Потом скопируй папки (рекурсивно, флаг -r):
 5. `memory/` → `/home/agent/workspace/memory/`
 6. `knowledge/` → `/home/agent/workspace/knowledge/`
-7. `.claude/` → `/home/agent/workspace/.claude/` (если есть)
+
+**Настройки Claude Code (.claude/):**
+7. Если у пользователя есть локальная папка `.claude/` — скопируй её в `/home/agent/.claude/` (НЕ в workspace!). Это настройки Claude Code: settings.json (правила светофора) и skills/ (навыки).
+
+Если `.claude/` нет локально — скачай дефолтные настройки из репозитория:
+```
+curl -fsSL https://raw.githubusercontent.com/Ntmib/jarvis-architect/main/.claude/settings.json -o /home/agent/.claude/settings.json
+```
 
 После копирования — поправь владельца:
 ```
-chown -R agent:agent /home/agent/workspace
+chown -R agent:agent /home/agent/workspace /home/agent/.claude
 ```
 
 ## Шаг 6. Проверь результат

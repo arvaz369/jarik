@@ -91,6 +91,15 @@ mkdir -p "$HOME_DIR/workspace/memory"
 mkdir -p "$HOME_DIR/workspace/knowledge"
 mkdir -p "$HOME_DIR/projects"
 mkdir -p "$HOME_DIR/.agent/bot"
+mkdir -p "$HOME_DIR/.claude/skills"
+
+# Дефолтные настройки Claude Code (светофор разрешений)
+if [ ! -f "$HOME_DIR/.claude/settings.json" ]; then
+  curl -fsSL https://raw.githubusercontent.com/Ntmib/jarvis-architect/main/.claude/settings.json \
+    -o "$HOME_DIR/.claude/settings.json" 2>/dev/null \
+    && log "Настройки Claude Code установлены" \
+    || warn "Не удалось скачать settings.json — можно добавить позже"
+fi
 
 # Права
 chown -R "$USERNAME:$USERNAME" "$HOME_DIR"
