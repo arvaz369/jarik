@@ -38,7 +38,6 @@ const SYSTEM_PROMPT_PATH = join(WORKSPACE, "CLAUDE.md");
 const CRASH_CONTEXT_FILE = join(DATA_DIR, ".crash_context.md");
 const STATE_FILE = join(DATA_DIR, "state.json");
 const SCHEDULES_FILE = join(DATA_DIR, "schedules.json");
-const MAX_SESSION_SIZE = 2 * 1024 * 1024; // 2 MB — start fresh if session too large
 const MAX_SYSTEM_PROMPT_CHARS = 30000;
 const STREAM_THROTTLE_MS = 1500;
 const BOT_VERSION = (() => {
@@ -60,7 +59,16 @@ for (const dir of [DATA_DIR, join(WORKSPACE, "memory"), join(WORKSPACE, "knowled
 
 function loadState() {
   try {
-    return JSON.parse(readFileSync(STATE_FILE, "utf8"));
+    const s = JSON.parse(readFileSync(STATE_FILE, "utf8"));
+    // Migration: v1 state.json may lack bootstrapDone — check DNA files
+    if (s.bootstrapDone === undefined) {
+      const hasExistingFiles = existsSync(join(WORKSPACE, "USER.md")) ||
+                               existsSync(join(WORKSPACE, "SOUL.md")) ||
+                               existsSync(join(WORKSPACE, "MEMORY.md"));
+      s.bootstrapDone = hasExistingFiles;
+      writeFileSync(STATE_FILE, JSON.stringify(s, null, 2));
+    }
+    return s;
   } catch {
     // No state.json — check if this is an existing user (has DNA files)
     const hasExistingFiles = existsSync(join(WORKSPACE, "USER.md")) ||
@@ -632,9 +640,10 @@ function callClaude(prompt, sessionId, { onText } = {}) {
 }
 
 function _getSessionSize(sessionId) {
+  // Kept for diagnostics only — no longer used to kill sessions.
+  // autocompact (CLAUDE_AUTOCOMPACT_PCT_OVERRIDE: "90") manages context natively.
   if (!sessionId) return 0;
   try {
-    // Claude stores sessions in ~/.claude/sessions/
     const sessDir = join(AGENT_HOME, ".claude", "sessions");
     const sessFile = join(sessDir, sessionId + ".jsonl");
     if (existsSync(sessFile)) return statSync(sessFile).size;
@@ -644,11 +653,6 @@ function _getSessionSize(sessionId) {
 
 function _callClaudeInner(prompt, sessionId, { onText } = {}) {
   return new Promise((resolve, reject) => {
-    // Check session size — if too large, start fresh
-    if (sessionId && _getSessionSize(sessionId) > MAX_SESSION_SIZE) {
-      console.log(`[session] ${sessionId} too large (>${MAX_SESSION_SIZE}), starting fresh`);
-      sessionId = null;
-    }
 
     const useStream = typeof onText === "function";
     const args = [
