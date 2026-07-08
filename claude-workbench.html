@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клод — Рабочий кабинет партнера</title>
+    <style>
+        @font-face {
+            font-family: 'Space Mono';
+            src: url('data:font/woff2;base64,d09GMgABAAAAACqkAA8AAAAAO5AAACJDAAE2CiYAHEoQnGQG2CwnC4xoABACJGgEIAuBgADn+P7/3v/+/v5eM2MyUUBIgWnQSEFU7P/+//7+/v39/Q0AnpQAz+EwEHAJ4zCeP5jPE8xRCBEfcVwjwJSJ5wQZKYZSDRGQTxLXRBgPRVrEMGRRvF0x4JlEMcEhxJFEMUkxSqFIMUqxSJFKsUmxSrFIcUkxSbFJsUoxSjFI0UoxSDFJMUkxSzFJMUixSLFIsUjxSzFIcUoxSXFJMUixSbFJsUixSLFJ8UkxSPFJMUixSDFIMUixSTFIsUmxSbFLsUhxSHFIcUhxSDFIMUhxSHFHsUgxSHFHsUfxSHFHsUfxR/FH8UfxR3FHsUfxR/FH8UgxSHFHsUhxSHFHsUfxR/FH8Udxh7FH8Ufxf/FH8X/xR/F/8UfxR/FH8UfxR/FH8UfxR/FH8UfxSDFHsUgxSHFHsUhxSHFHsUhxSHFHsUhxSHFHsUhxSHFHsUhxSHFHsUhxSHFHsUgxSHFHsUhxSHFIcUhxSHFIcUhxSHFIcUhxSHFIcUhxSHFIcUhxSHFIcUhxSHFIcUhxSHFIcUhxSHFIcUhxSHFIcUhxSHFIcUixSLFIsUixSLFLsUuxSHFIcUhxSHFIcUhxSHFHsUhxR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexR7FHsUexheit">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клод — Рабочий кабинет партнера</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #d97706;
+            --neutral-dark: #e8e6f0;
+            --neutral-light: #f5f3ff;
+            --text-dark: #1f2937;
+            --text-light: #f3f4f6;
+            --border: #ddd6f3;
+            --success: #10b981;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #3b82f6;
+                --accent: #f59e0b;
+                --neutral-dark: #1f2937;
+                --neutral-light: #111827;
+                --text-dark: #f3f4f6;
+                --text-light: #9ca3af;
+                --border: #374151;
+            }
+        }
+
+        :root[data-theme="light"] {
+            --primary: #1e3a8a;
+            --accent: #d97706;
+            --neutral-dark: #e8e6f0;
+            --neutral-light: #f5f3ff;
+            --text-dark: #1f2937;
+            --text-light: #f3f4f6;
+            --border: #ddd6f3;
+        }
+
+        :root[data-theme="dark"] {
+            --primary: #3b82f6;
+            --accent: #f59e0b;
+            --neutral-dark: #1f2937;
+            --neutral-light: #111827;
+            --text-dark: #f3f4f6;
+            --text-light: #9ca3af;
+            --border: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--neutral-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--neutral-dark);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .hero {
+                color: var(--text-dark);
+            }
+        }
+
+        .hero h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--neutral-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(217, 119, 6, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--neutral-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: start;
+        }
+
+        .timeline-label {
+            font-weight: 600;
+            color: var(--accent);
+            font-family: 'Courier New', monospace;
+        }
+
+        .timeline-content {
+            background: var(--neutral-dark);
+            border-left: 3px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+
+        .timeline-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .toggle {
+            background: var(--neutral-dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: all 0.2s;
+        }
+
+        .toggle:hover {
+            border-color: var(--accent);
+        }
+
+        .toggle-title {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .toggle.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .toggle-content {
+            display: none;
+            grid-column: 1 / -1;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .toggle.active .toggle-content {
+            display: block;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            header {
+                margin-bottom: 2rem;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                padding: 1.5rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 80px 1fr;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">CLAUDE</div>
+            <div class="tagline">Senior Partner</div>
+            <div class="subtitle">Helping Pavel build the future</div>
+        </header>
+
+        <div class="hero">
+            <h2>Привет, Паша! 👋</h2>
+            <p>Я здесь, чтобы быть твоим надежным партнёром в разработке Jarik OS — операционной системе цифровых сотрудников. Вместе мы превратим идеи в решения, а решения в реальность.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Партнёр</h3>
+                <p>Я не просто выполняю команды. Я предлагаю решения, критикую, когда нужно, и помогаю с инициативой.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>Архитектор</h3>
+                <p>Помогаю проектировать системы, анализирую подходы, предлагаю оптимальные решения для сложных задач.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Исполнитель</h3>
+                <p>Код, рефакторинг, интеграции, деплой, тестирование — делаю сам и отвечаю за качество.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📚</div>
+                <h3>Память</h3>
+                <p>Запоминаю твои предпочтения, решения, проблемы и учусь на каждом взаимодействии.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h3>Аналитик</h3>
+                <p>Исследую codebases, ищу паттерны, выявляю проблемы ещё до того, как они появятся.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Доставщик</h3>
+                <p>Доводим проекты до конца: тесты проходят, код работает, всё залито в main.</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Разделов в методологии</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2000+</div>
+                <div class="stat-label">Строк регламента</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Готовых шаблонов</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Вверх на главное</div>
+            </div>
+        </div>
+
+        <section>
+            <h2 style="font-size: 1.75rem; margin: 2rem 0 1rem 0; color: var(--primary);">Что я могу делать</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-label">Разработка</div>
+                    <div class="timeline-content">
+                        <h4>Полный цикл:</h4>
+                        <p>Архитектура, имплементация, тестирование, деплой. Работаю по методологии IMPLEMENTATION_METHODOLOGY.md — каждый проект проходит через квалификацию, фазы разработки, управление рисками и масштабирование.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-label">Планирование</div>
+                    <div class="timeline-content">
+                        <h4>Структурированные планы:</h4>
+                        <p>От идеи к шагам. Я разбиваю сложные задачи, предлагаю архитектуру, выявляю риски, планирую интеграции и масштабирование. Каждый план адаптирован под твои цели.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-label">Качество</div>
+                    <div class="timeline-content">
+                        <h4>Проверка перед доставкой:</h4>
+                        <p>Каждый код проходит через самопроверку: тесты, ревью, статический анализ. Клиентский путь проверяется вручную. Баги ловятся до того, как система уходит в боевую.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-label">Интеграция</div>
+                    <div class="timeline-content">
+                        <h4>Связываем части системы:</h4>
+                        <p>Работаю с git, создаю PR, управляю конфликтами, обновляю документацию. Каждый коммит — рабочее состояние, готовое к продакшену.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="font-size: 1.75rem; margin: 2rem 0 1rem 0; color: var(--primary);">Часто задаваемые вопросы</h2>
+
+            <div class="toggle" onclick="this.classList.toggle('active')">
+                <span class="toggle-title">Как Клод будет помогать мне в Jarik?</span>
+                <span class="toggle-icon">▼</span>
+                <div class="toggle-content">
+                    Jarik OS — это операционная система цифровых сотрудников. Я помогу тебе строить её по полной методологии: от квалификации клиентов, через проектирование архитектуры, разработку ядра и скиллов, до внедрения и масштабирования. Каждый шаг фиксируется в памяти, каждое решение документируется, каждый результат проверяется перед доставкой.
+                </div>
+            </div>
+
+            <div class="toggle" onclick="this.classList.toggle('active')">
+                <span class="toggle-title">Какие команды я могу использовать?</span>
+                <span class="toggle-icon">▼</span>
+                <div class="toggle-content">
+                    Я понимаю естественный язык. Скажи что нужно сделать: «исправь баг в компоненте X», «напиши тесты для функции Y», «спроектируй архитектуру Z», «залей всё в main». Я разберусь с деталями, предложу подход и выполню. Если нужна помощь со специфическим инструментом — скажи о нём напрямую.
+                </div>
+            </div>
+
+            <div class="toggle" onclick="this.classList.toggle('active')">
+                <span class="toggle-title">Как безопасно хранятся данные?</span>
+                <span class="toggle-icon">▼</span>
+                <div class="toggle-content">
+                    Вся память хранится локально в твоём проекте (папка `memory/` и `knowledge/`). Никакие данные не отправляются на внешние серверы. IMPLEMENTATION_METHODOLOGY.md защищена авторским правом и никогда не будет распространяться без твоего разрешения. Ты контролируешь всё.
+                </div>
+            </div>
+
+            <div class="toggle" onclick="this.classList.toggle('active')">
+                <span class="toggle-title">Что если я не согласен с предложением?</span>
+                <span class="toggle-icon">▼</span>
+                <div class="toggle-content">
+                    Дай обратную связь. Я слушаю критику, обновляю понимание и меняю подход. Мнение клиента всегда приоритет. Ты направляешь, я предлагаю, мы строим вместе.
+                </div>
+            </div>
+
+            <div class="toggle" onclick="this.classList.toggle('active')">
+                <span class="toggle-title">Как следить за прогрессом проектов?</span>
+                <span class="toggle-icon">▼</span>
+                <div class="toggle-content">
+                    Каждый день — свой файл в `memory/`. Каждый проект — свой раздел в `MEMORY.md`. Каждый коммит — это шаг вперёд, зафиксированный в git. Откройи `memory/` или `git log` и увидишь всю историю работы.
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 3rem; padding: 2rem; background: var(--neutral-dark); border-radius: 12px; border: 1px solid var(--border);">
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">Твой рабочий кабинет</h2>
+            <p style="color: var(--text-light); margin-bottom: 1.5rem;">Это твоя главная страница. Откройи её любой день, чтобы вспомнить что нам нужно делать и как я могу помочь. Я жду твоего задания, Паша.</p>
+            <button class="cta-button" onclick="alert('Я готов! Задавай. 🚀')">Начать работу</button>
+        </section>
+    </div>
+
+    <script>
+        // Theme detection and sync
+        function applyTheme() {
+            const stored = localStorage.getItem('theme');
+            if (stored) {
+                document.documentElement.setAttribute('data-theme', stored);
+            } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        }
+
+        applyTheme();
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+    </script>
+</body>
+</html>
