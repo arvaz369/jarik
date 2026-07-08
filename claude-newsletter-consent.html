@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Согласие на получение информационной рассылки</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #f59e0b;
+            --bg-light: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-light: #0f172a;
+                --text-primary: #f1f5f9;
+                --text-secondary: #cbd5e1;
+                --border: #334155;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+            background: white;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .container {
+                background: var(--primary-light);
+                color: white;
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .doc-info {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            text-indent: 1.5rem;
+        }
+
+        p.no-indent {
+            text-indent: 0;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.7rem;
+            text-align: justify;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .article {
+            margin-bottom: 1rem;
+        }
+
+        .article-number {
+            font-weight: bold;
+            display: inline;
+        }
+
+        .highlight-box {
+            border: 1px solid var(--border);
+            padding: 1rem;
+            margin: 1rem 0;
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .signature-block {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--border);
+        }
+
+        .signature-line {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .signature-line .line {
+            border-top: 1px solid var(--text-primary);
+            margin-top: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .checklist {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .checklist-item {
+            margin-bottom: 0.8rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .checkbox {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 1px solid var(--text-primary);
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="claude-legal.html" class="back-link">← Вернуться к документам</a>
+
+        <div class="header">
+            <h1>Согласие на получение информационной рассылки</h1>
+            <div class="doc-info">
+                Jarik OS | Claude AI Partner<br>
+                Дата вступления в силу: 9 июля 2026<br>
+                Версия 1.0
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>ПРЕАМБУЛА</h2>
+            <p class="no-indent">
+                Настоящее Согласие на получение информационной рассылки (далее — «Согласие») определяет условия,
+                под которыми компания Jarik OS / Claude AI Partner (далее — «Отправитель рассылки») может отправлять
+                Вам информационные сообщения, новости, предложения и иную коммерческую информацию по электронной почте
+                и другим каналам коммуникации.
+            </p>
+
+            <p class="no-indent">
+                Подписывая настоящее Согласие, Вы подтверждаете, что ознакомились с условиями рассылки и добровольно
+                даёте согласие на получение информационных сообщений на предоставленный Вами адрес электронной почты
+                и контактные данные.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>1. УСЛОВИЯ СОГЛАСИЯ</h2>
+
+            <div class="article">
+                <span class="article-number">1.1.</span> Я подтверждаю, что предоставил Отправителю рассылки
+                свой адрес электронной почты и контактные данные добровольно и осознанно.
+            </div>
+
+            <div class="article">
+                <span class="article-number">1.2.</span> Я согласен(на) получать информационные сообщения,
+                включая:
+            </div>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span class="checkbox"></span>
+                    Новости и обновления об услугах Отправителя
+                </div>
+                <div class="checklist-item">
+                    <span class="checkbox"></span>
+                    Информацию о новых продуктах и услугах
+                </div>
+                <div class="checklist-item">
+                    <span class="checkbox"></span>
+                    Специальные предложения и скидки
+                </div>
+                <div class="checklist-item">
+                    <span class="checkbox"></span>
+                    Приглашения на вебинары, воркшопы и события
+                </div>
+                <div class="checklist-item">
+                    <span class="checkbox"></span>
+                    Аналитические материалы, статьи и кейсы
+                </div>
+                <div class="checklist-item">
+                    <span class="checkbox"></span>
+                    Сервисные уведомления и обновления
+                </div>
+            </div>
+
+            <div class="article">
+                <span class="article-number">1.3.</span> Я понимаю, что получу рассылку на адрес электронной почты:
+            </div>
+
+            <div class="highlight-box">
+                <strong>Email:</strong> _______________________________________________
+            </div>
+
+            <div class="article">
+                <span class="article-number">1.4.</span> Частота рассылки может варьироваться от 1 до 4 раз в месяц.
+                Точное расписание будет зависеть от объёма новостей и предложений.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>2. ОБРАБОТКА ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+
+            <div class="article">
+                <span class="article-number">2.1.</span> Предоставляя согласие на рассылку, я также согласен(на)
+                на обработку моих персональных данных (адреса электронной почты, имени и других данных профиля)
+                в соответствии с Политикой обработки персональных данных Отправителя.
+            </div>
+
+            <div class="article">
+                <span class="article-number">2.2.</span> Данные будут использоваться исключительно для:
+            </div>
+
+            <ul>
+                <li>Отправки информационных сообщений;</li>
+                <li>Анализа открытия писем и кликов по ссылкам (без идентификации личности);</li>
+                <li>Улучшения качества контента рассылки;</li>
+                <li>Сегментирования аудитории по интересам;</li>
+                <li>Предотвращения мошенничества и нарушений.</li>
+            </ul>
+
+            <div class="article">
+                <span class="article-number">2.3.</span> Персональные данные не будут передаваться третьим лицам
+                в маркетинговых целях без моего явного согласия.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. ОТПИСКА ОТ РАССЫЛКИ</h2>
+
+            <div class="article">
+                <span class="article-number">3.1.</span> Я могу отписаться от рассылки в любой момент, без объяснения
+                причин. Для этого необходимо:
+            </div>
+
+            <ol>
+                <li>Нажать на ссылку «Отписаться» в конце каждого письма рассылки; <strong>ИЛИ</strong></li>
+                <li>Отправить письмо на адрес электронной почты [CONTACT_EMAIL] с просьбой удалить мой адрес из рассылки; <strong>ИЛИ</strong></li>
+                <li>Написать в Telegram [CONTACT_TELEGRAM] с просьбой удалить мой адрес из рассылки.</li>
+            </ol>
+
+            <div class="article">
+                <span class="article-number">3.2.</span> После отписки мой адрес электронной почты будет удалён
+                из списка рассылки в течение <strong>24 часов</strong>. Однако я могу получить ещё одно письмо
+                (подтверждение отписки) в течение этого периода.
+            </div>
+
+            <div class="article">
+                <span class="article-number">3.3.</span> Отписка от рассылки не повлияет на получение сервисных
+                уведомлений, связанных с активным контрактом или обслуживанием моего аккаунта.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>4. ЗАЩИТА ДАННЫХ</h2>
+
+            <div class="article">
+                <span class="article-number">4.1.</span> Отправитель рассылки применяет современные методы защиты
+                для предотвращения несанкционированного доступа к моему адресу электронной почты, включая:
+            </div>
+
+            <ul>
+                <li>Шифрование данных при передаче;</li>
+                <li>Ограничение доступа к списку адресов;</li>
+                <li>Защиту от спама и фишинга;</li>
+                <li>Регулярные проверки безопасности.</li>
+            </ul>
+
+            <div class="article">
+                <span class="article-number">4.2.</span> Мой адрес электронной почты будет храниться в защищённой
+                базе данных и не будет опубликован или распространён без моего согласия.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. СОДЕРЖАНИЕ РАССЫЛКИ</h2>
+
+            <div class="article">
+                <span class="article-number">5.1.</span> Информационная рассылка может содержать:
+            </div>
+
+            <ul>
+                <li>Статьи и аналитические материалы;</li>
+                <li>Кейсы и примеры использования услуг;</li>
+                <li>Приглашения на события и вебинары;</li>
+                <li>Специальные предложения и промо-коды;</li>
+                <li>Уведомления об обновлениях и изменениях;</li>
+                <li>Опросы и запросы обратной связи.</li>
+            </ul>
+
+            <div class="article">
+                <span class="article-number">5.2.</span> Отправитель рассылки гарантирует, что все сообщения будут:
+            </div>
+
+            <ul>
+                <li>Релевантными и полезными;</li>
+                <li>Без спама и мошеннических предложений;</li>
+                <li>С чётким указанием на возможность отписки;</li>
+                <li>Отправляться в указанное время (если клиент выбрал расписание).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>6. ЧАСТОТА И ВРЕМЯ РАССЫЛКИ</h2>
+
+            <div class="article">
+                <span class="article-number">6.1.</span> Информационная рассылка отправляется в будни (понедельник-пятница)
+                в период с 9:00 до 18:00 по московскому времени (UTC+3).
+            </div>
+
+            <div class="article">
+                <span class="article-number">6.2.</span> Типичная частота рассылки составляет <strong>2-3 письма в неделю</strong>,
+                но может быть изменена в зависимости от наличия новостей и предложений.
+            </div>
+
+            <div class="article">
+                <span class="article-number">6.3.</span> Критические сервисные уведомления (проблемы с доступом, обновления безопасности)
+                могут отправляться в любое время суток и не учитываются в общей частоте рассылки.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>7. АНАЛИТИКА И ОТСЛЕЖИВАНИЕ</h2>
+
+            <div class="article">
+                <span class="article-number">7.1.</span> Каждое письмо рассылки содержит код отслеживания, который позволяет
+                отправителю узнать, было ли письмо открыто и на какие ссылки были совершены клики.
+            </div>
+
+            <div class="article">
+                <span class="article-number">7.2.</span> Эта информация используется только для улучшения качества
+                контента и не раскрывается третьим лицам в идентифицирующем виде.
+            </div>
+
+            <div class="article">
+                <span class="article-number">7.3.</span> Я понимаю, что аналитика является стандартной практикой
+                в email-маркетинге и согласен(на) с её использованием.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>8. СОГЛАСИЕ И СООТВЕТСТВИЕ ЗАКОНУ</h2>
+
+            <div class="article">
+                <span class="article-number">8.1.</span> Настоящее Согласие составлено в соответствии с требованиями
+                Федерального закона № 38-ФЗ от 13 марта 2006 года «О рекламе» и Федеральным законом № 152-ФЗ
+                «О защите персональных данных».
+            </div>
+
+            <div class="article">
+                <span class="article-number">8.2.</span> Подписывая настоящее Согласие, я подтверждаю, что:
+            </div>
+
+            <ul>
+                <li>Ознакомился(лась) со всеми условиями;</li>
+                <li>Даю согласие добровольно, без давления;</li>
+                <li>Понимаю, что могу отписаться в любой момент;</li>
+                <li>Согласен(на) с обработкой персональных данных в указанных целях.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>9. КОНТАКТЫ И ПОДДЕРЖКА</h2>
+
+            <p class="no-indent">
+                Если у Вас есть вопросы по рассылке или если Вы хотите изменить параметры доставки, свяжитесь с нами:
+            </p>
+
+            <div style="margin: 1rem 0; padding-left: 2rem;">
+                <div style="margin-bottom: 0.8rem;">
+                    <strong>Email:</strong> [CONTACT_EMAIL]
+                </div>
+                <div style="margin-bottom: 0.8rem;">
+                    <strong>Telegram:</strong> [CONTACT_TELEGRAM]
+                </div>
+                <div>
+                    <strong>GitHub Issues:</strong> [CONTACT_GITHUB]
+                </div>
+            </div>
+
+            <p class="no-indent">
+                Мы ответим на Ваше письмо в течение 24 часов.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>10. ПРОЧИЕ УСЛОВИЯ</h2>
+
+            <div class="article">
+                <span class="article-number">10.1.</span> Отправитель рассылки может изменить условия настоящего
+                Согласия в любой момент. Об изменениях будет уведомлено по электронной почте.
+            </div>
+
+            <div class="article">
+                <span class="article-number">10.2.</span> Если Вы не согласны с изменениями, Вы можете отписаться
+                от рассылки в течение 7 дней после уведомления.
+            </div>
+
+            <div class="article">
+                <span class="article-number">10.3.</span> Настоящее Согласие вступает в силу с момента подписания
+                и действует до отписки или удаления адреса из списка рассылки.
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 2rem;">
+            <strong>Подтверждение согласия:</strong><br>
+            Я прочитал(а) и согласен(согласна) со всеми условиями настоящего Согласия на получение информационной рассылки.
+        </div>
+
+        <div class="signature-block">
+            <div>
+                <h2 style="font-size: 1rem; text-align: center;">ПОДПИСЧИК</h2>
+                <div class="signature-line">
+                    <div class="line"></div>
+                    Подпись
+                </div>
+                <p style="text-align: center; text-indent: 0; margin: 0.5rem 0 0 0; font-size: 0.9rem;">
+                    <span style="text-decoration: underline;">________________________</span><br>
+                    ФИО (печатными буквами)
+                </p>
+                <p style="text-align: center; text-indent: 0; margin: 0.5rem 0 0 0; font-size: 0.9rem;">
+                    Дата: ________________________
+                </p>
+            </div>
+
+            <div>
+                <h2 style="font-size: 1rem; text-align: center;">ОТПРАВИТЕЛЬ РАССЫЛКИ</h2>
+                <div class="signature-line">
+                    <div class="line"></div>
+                    Подпись
+                </div>
+                <p style="text-align: center; text-indent: 0; margin: 0.5rem 0 0 0; font-size: 0.9rem;">
+                    <span style="text-decoration: underline;">Павел Плотников</span><br>
+                    ФИО (печатными буквами)
+                </p>
+                <p style="text-align: center; text-indent: 0; margin: 0.5rem 0 0 0; font-size: 0.9rem;">
+                    Дата: ________________________
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Jarik OS. Согласие на получение информационной рассылки. Версия 1.0</p>
+            <p>Документ составлен в соответствии с Федеральным законом № 38-ФЗ «О рекламе» и № 152-ФЗ «О защите персональных данных»</p>
+        </footer>
+    </div>
+</body>
+</html>
