@@ -41,6 +41,17 @@
 - **Superpowers** — плагин Claude Code v6.0.3, установлен 22.06.2025
 - **GitHub** — репозитории: github.com/arvaz369/jarik
 
+## Установленные Skills (~/.claude/skills/)
+
+**gstack** (50 встроенных skillов для разработки, QA, дизайна, деплоя)
+
+**Дополнительные:**
+1. **remotion-video-skill** — создание видео с Remotion (для демо, маркетинга)
+2. **marketingskills** — маркетинговые навыки (conversion, SEO, analytics)
+3. **prompt-master** — оптимизация промптов для AI инструментов
+4. **context-engineering** — уменьшение токенов без потери качества (экономия API)
+5. **taste-skill** — улучшение эстетики дизайна (избегает AI-generated look)
+
 ---
 
 ## Предпочтения
