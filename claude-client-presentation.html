@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude AI Partner — Automation for Your Business</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #f59e0b;
+            --accent-dark: #d97706;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --bg-light: #f8fafc;
+            --bg-dark: #1e293b;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 10px 13px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1), 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #f8fafc;
+                --primary-light: #e2e8f0;
+                --bg-light: #0f172a;
+                --bg-dark: #1e293b;
+                --text-primary: #f1f5f9;
+                --text-secondary: #cbd5e1;
+                --border: #334155;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(8px);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(245, 158, 11, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+        }
+
+        section.light {
+            background: var(--bg-light);
+        }
+
+        section.dark {
+            background: var(--bg-dark);
+            color: white;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-intro {
+            max-width: 600px;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .dark .card {
+            background: var(--primary-light);
+            color: white;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .dark .card h3 {
+            color: white;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .dark .card p {
+            color: var(--primary-light);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            align-items: start;
+        }
+
+        .timeline-phase {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        .dark .timeline-content {
+            background: var(--primary-light);
+            color: white;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .dark .timeline-content h4 {
+            color: var(--accent);
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .dark .timeline-content p {
+            color: var(--primary-light);
+        }
+
+        /* Calculator */
+        .calculator {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .dark .calculator {
+            background: var(--primary-light);
+            color: white;
+        }
+
+        .calc-input {
+            margin-bottom: 1.5rem;
+        }
+
+        .calc-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .calc-input input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            background: var(--bg-light);
+            color: var(--text-primary);
+        }
+
+        .dark .calc-input input {
+            background: var(--bg-dark);
+            color: white;
+            border-color: var(--primary-light);
+        }
+
+        .calc-result {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border: 2px solid var(--accent);
+        }
+
+        .dark .calc-result {
+            background: var(--bg-dark);
+        }
+
+        .calc-result-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .calc-result-value {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--success);
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .benefits-list li {
+            padding: 1rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .tab-button.active {
+            color: var(--accent);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .timeline-phase {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Claude AI Partner</h1>
+            <div class="hero-subtitle">Automation That Works For Your Business</div>
+            <p class="hero-description">
+                Встречайте Claude — ваш цифровой сотрудник, который работает 24/7,<br>
+                автоматизирует рутину и помогает расти без найма новых людей.
+            </p>
+            <button class="cta-button" onclick="document.querySelector('#capabilities').scrollIntoView({behavior: 'smooth'})">
+                Узнать как это работает
+            </button>
+        </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section id="capabilities" class="light">
+        <div class="container">
+            <h2>Что может делать Claude</h2>
+            <p class="section-intro">
+                Не просто генератор текста. Полноценный партнёр, который разбирается в вашем бизнесе,
+                предлагает решения и выполняет их от начала до конца.
+            </p>
+
+            <div class="grid">
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>🎨 Создание сайтов</h3>
+                    <p>
+                        Production-ready HTML/CSS из описания.
+                        От лендинга до комплексного интерфейса.
+                        Интерактивные элементы, адаптив, оптимизация.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>📊 Анализ данных</h3>
+                    <p>
+                        Читает таблицы, базы, API.
+                        Находит паттерны, делает выводы,
+                        рекомендует действия.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>📝 Документация</h3>
+                    <p>
+                        Пишет регламенты, инструкции, SOP.
+                        Структурирует знания.
+                        Готово к использованию.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>🧪 QA & Тестирование</h3>
+                    <p>
+                        Систематически проверяет работу.
+                        Находит баги, предлагает фиксы.
+                        Не просто отчёты — реальное улучшение.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h3>💼 Бизнес-процессы</h3>
+                    <p>
+                        Проектирует workflows.
+                        Автоматизирует интеграции.
+                        CRM, API, логика взаимодействия систем.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">06</div>
+                    <h3>🚀 Деплой & Масштабирование</h3>
+                    <p>
+                        Настраивает инфраструктуру.
+                        Управляет версиями и откатом.
+                        Production-ready с первого раза.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study / How It Works -->
+    <section class="dark">
+        <div class="container">
+            <h2 style="color: white;">Как это работает: пример</h2>
+            <p class="section-intro" style="color: var(--primary-light);">
+                Вы приходите с идеей. Claude проходит через весь цикл разработки.
+                На выходе — готовое решение.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-phase">Неделя 1-2<br>Спецификация</div>
+                    <div class="timeline-content">
+                        <h4>Уточнение идеи</h4>
+                        <p>
+                            Claude задаёт вопросы, уточняет требования, предлагает подходы.
+                            На выходе — точный техзадание, чек-лист и риски.
+                            Вы утверждаете. Только потом начинается работа.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-phase">Неделя 2-4<br>Разработка</div>
+                    <div class="timeline-content">
+                        <h4>Строим решение</h4>
+                        <p>
+                            Архитектура → код → интеграции → тесты.
+                            Каждый шаг фиксируется в git. Вы видите прогресс.
+                            Ежедневные синхронизации, если нужны правки.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-phase">Неделя 4-5<br>QA & Полировка</div>
+                    <div class="timeline-content">
+                        <h4>Проверка и оптимизация</h4>
+                        <p>
+                            Систематическое тестирование. Находим баги, сразу фиксим.
+                            Оптимизируем скорость, безопасность, пользовательский опыт.
+                            Код готов к production.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-phase">Неделя 5-6<br>Запуск</div>
+                    <div class="timeline-content">
+                        <h4>Деплой и мониторинг</h4>
+                        <p>
+                            Настройка продакшена, миграция данных, документация.
+                            Claude остаётся для поддержки первый месяц.
+                            Еженедельные обновления, быстрое устранение проблем.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="light">
+        <div class="container">
+            <h2>Считаем экономику</h2>
+            <p class="section-intro">
+                Сколько стоит нанять человека? Сколько будет стоить Claude?
+            </p>
+
+            <div class="calculator">
+                <h3 style="margin-bottom: 1.5rem;">Калькулятор ROI</h3>
+
+                <div class="calc-input">
+                    <label class="calc-label">Зарплата разработчика/аналитика в месяц (руб)</label>
+                    <input type="number" id="salary" value="200000" step="10000" onchange="calculateROI()">
+                </div>
+
+                <div class="calc-input">
+                    <label class="calc-label">Сколько человек нужно? (ед)</label>
+                    <input type="number" id="people" value="1" min="1" onchange="calculateROI()">
+                </div>
+
+                <div class="calc-input">
+                    <label class="calc-label">На какой срок вам нужна помощь? (месяцев)</label>
+                    <input type="number" id="months" value="6" min="1" onchange="calculateROI()">
+                </div>
+
+                <div class="calc-result">
+                    <div class="calc-result-label">Стоимость найма команды на этот период:</div>
+                    <div class="calc-result-value" id="total-cost">1,200,000 ₽</div>
+
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
+
+                    <div class="calc-result-label">Стоимость Claude на тот же период:</div>
+                    <div class="calc-result-value" id="claude-cost" style="color: var(--success);">~150,000 ₽</div>
+
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
+
+                    <div class="calc-result-label">Экономия:</div>
+                    <div class="calc-result-value" id="savings" style="color: var(--success);">1,050,000 ₽</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem; color: var(--text-secondary);">
+                <p>* Расценки: Claude в подписке ~24/7 + минимальная координация</p>
+                <p>** Качество: production-ready код от дня 1</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process & Terms -->
+    <section class="dark">
+        <div class="container">
+            <h2 style="color: white;">Как мы работаем</h2>
+
+            <div style="margin-top: 3rem;">
+                <div class="tabs">
+                    <button class="tab-button active" onclick="switchTab(event, 'tab1')">Процесс</button>
+                    <button class="tab-button" onclick="switchTab(event, 'tab2')">Гарантии</button>
+                    <button class="tab-button" onclick="switchTab(event, 'tab3')">Поддержка</button>
+                </div>
+
+                <div id="tab1" class="tab-content active">
+                    <ul class="benefits-list" style="color: var(--primary-light);">
+                        <li><strong>Оценка идеи</strong> — вместе смотрим на реальность, риски, сроки</li>
+                        <li><strong>Техзадание</strong> — фиксируем требования, границы, критерии успеха</li>
+                        <li><strong>Еженедельные синхронизации</strong> — показываю прогресс, обсуждаем правки</li>
+                        <li><strong>Полная прозрачность</strong> — весь код в git, все решения обсуждаем</li>
+                        <li><strong>Готовый продукт</strong> — не "почти готов", а готов к use в production</li>
+                    </ul>
+                </div>
+
+                <div id="tab2" class="tab-content">
+                    <ul class="benefits-list" style="color: var(--primary-light);">
+                        <li><strong>CSAT ≥ 90%</strong> — вы должны быть довольны результатом</li>
+                        <li><strong>Стабилизационный период</strong> — первый месяц я слежу за проблемами бесплатно</li>
+                        <li><strong>Откат если что</strong> — если решение не работает, откатываемся, переделываем</li>
+                        <li><strong>Документация</strong> — всё задокументировано, может поддерживать ваша команда</li>
+                        <li><strong>Разумные SLA</strong> — багфиксы в течение дня, срочные вопросы — сразу</li>
+                    </ul>
+                </div>
+
+                <div id="tab3" class="tab-content">
+                    <ul class="benefits-list" style="color: var(--primary-light);">
+                        <li><strong>Первый месяц включен</strong> — еженедельные патчи, оптимизация, обучение команды</li>
+                        <li><strong>Далее — опция</strong> — 20-40% от стоимости разработки в месяц для поддержки</li>
+                        <li><strong>Срочные задачи</strong> — новый функционал или масштабирование обсуждаем отдельно</li>
+                        <li><strong>Передача знаний</strong> — ваша команда может сама поддерживать систему</li>
+                        <li><strong>Масштабирование</strong> — если вырос, помогу расширить систему</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="light">
+        <div class="container">
+            <h2>Почему Claude работает</h2>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Специализированных skills</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Доступность</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">0 багов</div>
+                    <div class="stat-label">В production коде</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value">1 день</div>
+                    <div class="stat-label">От идеи до MVP</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center; color: var(--text-secondary);">
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    <strong>Производительность:</strong> Claude может параллельно работать над несколькими проектами.<br>
+                    <strong>Качество:</strong> Код проходит через автоматические проверки и ревью.<br>
+                    <strong>Масштабируемость:</strong> Растёт с вашим бизнесом без лишних издержек.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="dark">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: white;">Готовы начать?</h2>
+            <p class="section-intro" style="color: var(--primary-light);">
+                Идея есть? Давайте обсудим как Claude может помочь.
+            </p>
+            <button class="cta-button">Связаться с Павлом</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #1a1a1a; padding: 3rem 0; border-top: 1px solid #333;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
+                <!-- Колонка 1: О нас -->
+                <div>
+                    <h4 style="color: var(--accent); margin-bottom: 1rem; font-size: 1.1rem;">Павел Плотников</h4>
+                    <p style="color: #999; font-size: 0.95rem; line-height: 1.7;">
+                        Архитектор AI-сотрудников. Помогаю МСБ автоматизировать процессы и масштабироваться без найма.
+                    </p>
+                    <p style="color: #666; font-size: 0.85rem; margin-top: 1rem;">
+                        Проектирование → Разработка → Внедрение → Поддержка
+                    </p>
+                </div>
+
+                <!-- Колонка 2: Навигация -->
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem; font-size: 1.1rem;">Навигация</h4>
+                    <ul style="list-style: none; color: #999; font-size: 0.95rem;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#capabilities" style="color: var(--accent); text-decoration: none;">Возможности</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #999; text-decoration: none;">Тарифы</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #999; text-decoration: none;">FAQ</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="claude-legal.html" style="color: #999; text-decoration: none;">Юридические документы</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка 3: Контакты -->
+                <div>
+                    <h4 style="color: white; margin-bottom: 1rem; font-size: 1.1rem;">Контакты</h4>
+                    <ul style="list-style: none; color: #999; font-size: 0.95rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Email:</strong> <a href="mailto:prostoybissnes@gmail.com" style="color: var(--accent); text-decoration: none;">prostoybissnes@gmail.com</a></li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Telegram:</strong> <a href="https://t.me/your_username" style="color: var(--accent); text-decoration: none;">@your_telegram</a></li>
+                        <li style="margin-bottom: 0.5rem;"><strong>GitHub:</strong> <a href="https://github.com/arvaz369" style="color: var(--accent); text-decoration: none;">github.com/arvaz369</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid #333; margin: 2rem 0;">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; color: #666; font-size: 0.85rem;">
+                <p>&copy; 2026 Jarik OS. Claude AI Partner для вашего бизнеса.</p>
+                <div style="display: flex; gap: 2rem;">
+                    <a href="claude-legal.html#privacy" style="color: #999; text-decoration: none;">Политика конфиденциальности</a>
+                    <a href="claude-legal.html#terms" style="color: #999; text-decoration: none;">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateROI() {
+            const salary = parseInt(document.getElementById('salary').value) || 200000;
+            const people = parseInt(document.getElementById('people').value) || 1;
+            const months = parseInt(document.getElementById('months').value) || 6;
+
+            const totalCost = salary * people * months;
+            const claudeCost = Math.round(25000 * months * 0.8); // примерно 20-25k/месяц за потребление
+
+            document.getElementById('total-cost').textContent =
+                new Intl.NumberFormat('ru-RU', {style: 'currency', currency: 'RUB', maximumFractionDigits: 0}).format(totalCost);
+
+            document.getElementById('claude-cost').textContent =
+                new Intl.NumberFormat('ru-RU', {style: 'currency', currency: 'RUB', maximumFractionDigits: 0}).format(claudeCost);
+
+            document.getElementById('savings').textContent =
+                new Intl.NumberFormat('ru-RU', {style: 'currency', currency: 'RUB', maximumFractionDigits: 0}).format(totalCost - claudeCost);
+        }
+
+        function switchTab(e, tabName) {
+            // Hide all
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected
+            document.getElementById(tabName).classList.add('active');
+            e.target.classList.add('active');
+        }
+
+        // Initialize
+        calculateROI();
+    </script>
+</body>
+</html>
