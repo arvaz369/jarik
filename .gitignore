@@ -17,5 +17,8 @@ Thumbs.db
 *.pem
 *.key
 
-# Claude Code локальные настройки
-.claude/settings.local.json
+# AI Agents — не даем агенту читать служебные папки
+node_modules/
+dist/
+build/
+.claude/
