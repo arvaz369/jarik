@@ -238,6 +238,32 @@
 
 ---
 
+## Моя команда
+
+### Скиллы проекта (`.claude/skills/`)
+- `content-creator` — создание контента для блогов и соцсетей
+- `discovery-interview` — сбор требований и ТЗ
+- `frontend-design` — дизайн и вёрстка интерфейсов
+- `fullstack-developer` — веб-разработка (React, Node.js, API)
+- `server-setup` — установка Агента на VPS
+- `reminder` — напоминания и регулярные задачи
+
+### Плагин Superpowers (`superpowers@claude-plugins-official` v6.0.3)
+- `brainstorming` — проработка идей перед реализацией
+- `writing-plans` — составление планов для сложных задач
+- `executing-plans` — выполнение готовых планов
+- `systematic-debugging` — отладка багов по методологии
+- `test-driven-development` — разработка через тесты
+- `requesting-code-review` / `receiving-code-review` — проверка кода
+- `subagent-driven-development` — параллельные агенты
+- `verification-before-completion` — проверка перед завершением задачи
+- `using-git-worktrees` — изолированная разработка через git worktree
+- `finishing-a-development-branch` — завершение ветки и подготовка к merge
+- `writing-skills` — создание новых скиллов
+- `using-superpowers` — инициализация навыков в начале сессии
+
+---
+
 ## Что НЕ удалять без явной просьбы
 
 - `SOUL.md`
