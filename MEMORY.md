@@ -131,6 +131,8 @@ skills-starter-kit.md — готовые скиллы для быстрого с
 
 claude-code-best-practice.md — 83 совета для профессиональной работы с Claude Code. 7 категорий (subagents, commands, skills, workflows, MCP, memory, settings). 10+ готовых workflow'ов. От vibe coding к agentic engineering. Девиз: Challenge Claude—don't babysit.
 
+humanizer-ru.md — очистка русского текста от AI-штампов и копипаста. 37 паттернов сканирования (водяные слова, ChatGPT маркеры, служебные метки, стилистика). 19 eval-сценариев, 127 проверок. Использовать после генерации контента для естественности.
+
 ---
 
 ## Правила работы с этим файлом (для Агента)
