@@ -129,6 +129,8 @@ claude-9-hidden-features.md — 9 практических техник для �
 
 skills-starter-kit.md — готовые скиллы для быстрого старта (контент, видео, монтаж, скачивание). Движки: yt-dlp, Whisper, FFmpeg. Как установить за 10 секунд, как собрать контент-конвейер за 15 минут. Для клиентов: готовые инструменты, которые сразу работают.
 
+claude-code-best-practice.md — 83 совета для профессиональной работы с Claude Code. 7 категорий (subagents, commands, skills, workflows, MCP, memory, settings). 10+ готовых workflow'ов. От vibe coding к agentic engineering. Девиз: Challenge Claude—don't babysit.
+
 ---
 
 ## Правила работы с этим файлом (для Агента)
