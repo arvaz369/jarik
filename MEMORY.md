@@ -119,6 +119,8 @@ quality-control.md — обязательный процесс контроля 
 
 karpathy-claude-md.md — 4 принципа Карпатого для AI-агентов (Reasoning Before Action, Simplicity First, Surgical Changes, Goal-Oriented Execution). Снижают галлюцинации на 1.5-2x, улучшают фокусировку, предотвращают побочные эффекты. Встроены в глобальный ~/.claude/CLAUDE.md.
 
+content-ideas-12-sources.md — справочник 12 источников идей для контента (вопросы клиентов, комментарии, YouTube, Telegram, Perplexity, Google Trends, Metricool и т.д.). Схема: вопрос → 5 похожих → рубрика → гипотеза. Будущая архитектура: разведчики-агенты для автоматизации мониторинга.
+
 ---
 
 ## Правила работы с этим файлом (для Агента)
