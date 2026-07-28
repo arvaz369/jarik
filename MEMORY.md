@@ -134,6 +134,14 @@ claude-code-best-practice.md — 83 совета для профессионал
 
 humanizer-ru.md — очистка русского текста от AI-штампов и копипаста. 37 паттернов сканирования (водяные слова, ChatGPT маркеры, служебные метки, стилистика). 19 eval-сценариев, 127 проверок. Использовать после генерации контента для естественности.
 
+## Reference: Внешние ресурсы
+
+Claude Use Cases (https://claude.com/resources/use-cases) — 18+ примеров использования Claude для Finance, Education, Nonprofits и т.д. Источник идей для демонстрационных клиентских агентов и presentation материалов. Не технический справочник, но хорошо показывает real-world применение.
+
+codex-plugin-cc (https://github.com/openai/codex-plugin-cc) — плагин для интеграции Codex с Claude Code. Разделение задач: код → review в Codex, rescue для фоновой работы. В backlog для фазы интеграции с Codex.
+
+OpenCodex (https://github.com/lidge-jun/opencodex) — прокси для мультимодельной маршрутизации (Claude, Gemini, Grok). Критично для контент-заводов и массивных систем. В backlog для фазы масштабирования.
+
 ---
 
 ## Правила работы с этим файлом (для Агента)
