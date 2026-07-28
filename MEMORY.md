@@ -140,6 +140,8 @@ claude-code-best-practice.md — 83 совета для профессионал
 
 humanizer-ru.md — очистка русского текста от AI-штампов и копипаста. 37 паттернов сканирования (водяные слова, ChatGPT маркеры, служебные метки, стилистика). 19 eval-сценариев, 127 проверок. Использовать после генерации контента для естественности.
 
+smb-agent-patterns.md — архитектурные паттерны для мультиагентных SMB систем. 5 ключевых паттернов (Decomposition, State Management, Trust & Verification, Multi-tool Orchestration, Data Privacy). 15 готовых workflows (зарплата, reconciliation, pipeline, контент). Фазы реализации: прототип → расширение → демонстрация клиентам. Используй как основу для каждого SMB агента.
+
 ## Reference: Внешние ресурсы
 
 Claude Use Cases (https://claude.com/resources/use-cases) — 18+ примеров использования Claude для Finance, Education, Nonprofits и т.д. Источник идей для демонстрационных клиентских агентов и presentation материалов. Не технический справочник, но хорошо показывает real-world применение.
