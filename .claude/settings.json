@@ -6,7 +6,12 @@
       "Write(//**)",
       "Edit(//**)",
       "WebFetch",
-      "WebSearch"
+      "WebSearch",
+      "Glob",
+      "Grep",
+      "TodoWrite",
+      "Skill",
+      "ToolSearch"
     ],
     "deny": [
       "Bash(rm -rf:*)",
